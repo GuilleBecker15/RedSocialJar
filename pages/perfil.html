@@ -1,0 +1,205 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Segunda entrega proyecto Jovenes a Promgramar (Ceibal).">
+    <meta name="author" content="Guillermo Becker">
+
+    <title>Typing</title>
+
+    <link href="/ObligatorioJar/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/ObligatorioJar/css/blog-post.css" rel="stylesheet">
+    <script src="/ObligatorioJar/vendor/jquery/jquery.min.js"></script>
+    <script src="/ObligatorioJar/vendor/popper/popper.min.js"></script>
+    <script src="/ObligatorioJar/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/ObligatorioJar/js/headerLogin.js"></script>
+    <script type="text/javascript" src="/ObligatorioJar/js/nodeApiManager.js"></script>
+    <script type="text/javascript" src="/ObligatorioJar/js/storageApiManager.js"></script>
+    <script src="/ObligatorioJar/js/funciones.js"></script>
+    <script src="/ObligatorioJar/js/tabsProfile.js"></script>
+    <style type="text/css" media="screen">
+
+    </style>
+  </head>
+
+  <body>
+    <nav></nav>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <div class="col-lg-12 mx-auto">
+            <div class="card hovercard">
+              <div class="card-background">
+                <img class="card-bkimg" alt="" src="/ObligatorioJar/img/imgPerfil.jpg">
+              </div>
+              <div class="useravatar">
+                <img alt="" src="/ObligatorioJar/img/imgPerfil.jpg">
+              </div>
+                <div class="card-info"> <span class="card-title">Nombre de usuario</span>
+              </div>
+            </div>
+            <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+              <div class="btn-group" role="group">
+                <button type="button" id="stars" class="btn btn-primary active" href="#datosPersonales" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                  <div class="hidden-xs">Datos personales</div>
+                </button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" id="favorites" class="btn btn-default" href="#misPublicaciones" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                  <div class="hidden-xs">Mis publicaciones</div>
+                </button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" id="following" class="btn btn-default" href="#misFotos" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                  <div class="hidden-xs">Mis fotos</div>
+                </button>
+              </div>
+            </div>
+
+            <div class="well">
+              <div class="tab-content">
+                <div class="tab-pane fade in active show" id="datosPersonales" aria-expanded="true">
+                  <div class="col-md-12 mx-auto">
+                    <h3 class="text-center">Datos personales</h3>
+                    <div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label class="control-label" for="nickname">Nickname:</label>
+                          <input type="text" name="nickname" class="form-control" id="nicknameUser" value="Nickname de usuario">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label class="control-label" for="name">Nombre:</label>
+                          <input type="text" name="name" class="form-control" id="nameUser" value="Nombre de usuario">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label class="control-label" for="name">Apellido:</label>
+                          <input type="text" name="surname" class="form-control" id="surnameUser" value="Apellido de usuario">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label class="control-label" for="name">Correo electronico:</label>
+                          <input type="email" name="email" class="form-control" id="emailUser" value="Correo electronico de usuario">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label class="control-label" for="name">Pais:</label>
+                          <input type="text" name="name" class="form-control" id="countryUser" value="Pa&iacute;s de usuario">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalCambiarContrasenia" style = "padding: 7px; float: right;"><span class = "fa fa-lock"></span>&nbsp;&nbsp;<b>Cambiar contrase&ntilde;a</b></button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="tab-pane fade in" id="misPublicaciones">
+                  <div class="col-md-12 mx-auto">
+                    <h3 class="text-center">Mis publicaciones</h3>
+                    <div class="row">
+                      <div class="news w-100">
+                        <div class="card my-4">
+                        <div class="">
+                          <div class="card-body" id="news-body">
+                            <div class="separador">
+                              <div class="media mb-4">
+                                <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                                <div class="media-body">
+                                  <h5 class="mt-1">Nombre de usuario</h5>
+                                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                                  <button type="button" class="btn btn-primary float-right" href="/pages/publicacion.html">Ver publicación</button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="separador">
+                              <div class="media mb-4">
+                                <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                                <div class="media-body">
+                                  <h5 class="mt-1">Nombre de usuario</h5>
+                                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                                  <a type="button" class="btn btn-primary float-right" href="/pages/publicacion.html">Ver publicación</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade in" id="misFotos">
+                  <div class="col-md-12 mx-auto">
+                    <h3 class="text-center">Mis fotos</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Modal cammbiar contraseña -->
+<div id="modalCambiarContrasenia" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Cambiar contraseña</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form id="formCambiarcontra" action="#" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+        <div id="bodyModalChangePass" class="modal-body">
+          <div class = "container-fluid">
+            <div id="cambiarContra">
+              <div class="row">
+                <div class="form-group col-sm-12">
+                  <label for="passold" class="control-label"><b>Contraseña actual</b></label><br>
+                  <input type="password" class = "form-control" name = "contravieja" id="contravieja" required>
+                </div>              
+              </div>
+              <div class = "row">
+                <div class="form-group col-sm-12">
+                  <label for="pass1" class="control-label" id="contranueva1"><b>Contraseña nueva</b></label><br>
+                  <input type="password" class = "form-control" name = "contrasenia" id="contrasenia1" required>
+                </div>
+              </div>
+              <div class = "row">
+                <div class="form-group col-sm-12">
+                  <label for="pass2" class="control-label" id="contranueva2"><b>Confirmar contraseña</b></label><br>
+                  <input type="password" class = "form-control" name = 'contrasenia2' id="contrasenia2" required>
+                </div>
+              </div>
+            </div>
+          </div>       
+        </div>
+        <div class="modal-footer">
+           <button type="button" class="btn btn-danger" data-dismiss = "modal"><b>Cancelar</b></button>
+           <button type="submit" class="btn btn-success" id ="cambiarPass"><b>Aceptar</b></button>
+         </div>
+      </div>
+        
+      </form>
+  </div>
+  
+</div>
+  <footer></footer>
+
+</body>
+
+</html>

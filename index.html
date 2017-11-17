@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Segunda entrega proyecto Jovenes a Promgramar (Ceibal).">
+    <meta name="author" content="Guillermo Becker">
+
+    <title>Typing</title>
+
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="./css/blog-post.css" rel="stylesheet">
+
+    <script src="./vendor/jquery/jquery.min.js"></script>
+    <script src="./vendor/popper/popper.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/nodeApiManager.js"></script>
+    <script type="text/javascript" src="./js/storageApiManager.js"></script>
+    <script src="./js/funciones.js"></script>
+  </head>
+
+  <body onload="init();">
+    <nav>
+      
+    </nav>
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Typing</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Iniciar sesión
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Registrarse</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+
+    <div class="container">   
+      <div class="row"> 
+        <div class="col-mg-10 mx-auto">
+          <h1 class="mt-4">Bienvenido</h1>   
+          <p>Typing te ayuda a comunicarte y compartir con las personas que forman parte de tu vida.<br>
+            <a href="#" data-toggle="modal" data-target="#loginModal">Inicio sesión</a> o <a href="#" data-toggle="modal" data-target="#registerModal">registrate.</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-mg-12 mx-auto">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="./img/1.2.jpg" width="1024" height="777" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./img/2.2.jpg" width="1024" height="777" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./img/3.2.jpg" width="1024" height="777" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- <form action="/pages/news.html"> -->
+              <div class="alert alert-danger row" id = "alertLogin">
+                <div class="col-sm-12">
+                  <center><strong>ERROR</strong></center>
+                  <center><p>Cédula de identidad y/o contraseña errónea/s</p></center>
+                </div>
+              </div>
+            <form id="loginForm" onsubmit="return logIn(this);">
+              <div class="form-group">
+                <label for="login-email" class="form-control-label">Correo electronico:</label>
+                <input type="email" class="form-control" id="login-email" name="email" required />
+              </div>         
+              <div class="form-group">
+                <label for="login-email" class="form-control-label">Contrase&ntilde;a:</label>
+                <input type="password" class="form-control" id="login-password" name="password" required />
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="checkbox" onclick="showPassword();" aria-label="Checkbox for following text input">
+                </span>
+                <span class="form-control">Show password</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label><input id="rememberme" name="rememberme" value="remember" type="checkbox" /> &nbsp;Remember me</label>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- register modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registro nuevo usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="alert alert-danger row" id = "alertSignUp">
+                  <div class="col-sm-12">
+                    <center><strong>ERROR</strong></center>
+                    <center><p>Ha ocurrido un error al registrarse, por favor intente mas tarde.</p></center>
+                  </div>
+                </div>
+                <form id="signUpForm" onsubmit="return signUp(this);">
+                  <div class="form-group">
+                    <label for="recipient-nickname" class="form-control-label">Nickname:</label>
+                    <input type="text" class="form-control" id="recipient-nickname"  name="nickname" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="recipient-name" class="form-control-label">Nombre:</label>
+                    <input type="text" class="form-control" id="recipient-name"  name="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="form-control-label">Apelido:</label>
+                    <input type="text" class="form-control" id="recipient-surname"  name="surname" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="form-control-label">Correo Electronico:</label>
+                    <input type="email" class="form-control" id="recipient-email"  name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="form-control-label">Pa&iacute;s:</label>
+                    <input type="text" class="form-control" id="recipient-country" name="pais"  required>
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="form-control-label">Contrase&ntilde;a:</label>
+                    <input type="password" class="form-control" id="recipient-password" name="password" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="form-control-label">Repita contrase&ntilde;a:</label>
+                    <input type="password" class="form-control" id="recipient-repeat-password" name="repassword" required>
+                  </div>
+                  
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Registrarme</button>
+                    </div>
+                  </form>
+                </div>
+              
+          </div>
+        </div>
+      </div>
+  </body>
+
+</html>
