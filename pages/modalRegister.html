@@ -1,0 +1,56 @@
+ <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registro nuevo usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger row" id = "alertSignUp">
+          <div class="col-sm-12">
+            <center><strong>ERROR</strong></center>
+            <center><p>Ha ocurrido un error al registrarse, por favor intente mas tarde.</p></center>
+          </div>
+        </div>
+        <form id="signUpForm" onsubmit="return signUp(this);">
+          <div class="form-group">
+            <label for="recipient-nickname" class="form-control-label">Nickname:</label>
+            <input type="text" class="form-control" id="recipient-nickname"  name="nickname" required>
+          </div>
+
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Nombre:</label>
+            <input type="text" class="form-control" id="recipient-name"  name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Apelido:</label>
+            <input type="text" class="form-control" id="recipient-surname"  name="surname" required>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Correo Electronico:</label>
+            <input type="email" class="form-control" id="recipient-email"  name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Pa&iacute;s:</label>
+            <input type="text" class="form-control" id="recipient-country" name="pais"  required>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Contrase&ntilde;a:</label>
+            <input type="password" class="form-control" id="recipient-password" name="password" required>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Repita contrase&ntilde;a:</label>
+            <input type="password" class="form-control" id="recipient-repeat-password" name="repassword" required>
+          </div>
+          
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Registrarme</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>

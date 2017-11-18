@@ -1,24 +1,6 @@
-var login = storageApiManager.localGetItem("logueado");
-console.log("----------LOGUEADO-------------")
-console.log(login);
+// var login = storageApiManager.localGetItem("logueado");
 
-function init(){
-   if (!!login){
-        console.log("----------YA ESTA LOGUEADO-------------")
-        // $( "nav" ).load( "./pages/headerLogin.html",function(){
-        $( "nav" ).load( "/ObligatorioJar/pages/headerLogin.html",function(){
-            document.getElementById('logOut').addEventListener("click", function(evt){
-                alert("HOLLA");
-            });
-            
-        });
-   }else{
-        console.log("----------NO NO NO  LOGUEAO-------------")
-        // $( "nav" ).load( "./pages/headerNoLogin.html");
-        $( "nav" ).load( "/ObligatorioJar/pages/headerNoLogin.html");
-    }
 
-}
 
 $(document).ready(function() {
     $(".btn-pref .btn").click(function () {

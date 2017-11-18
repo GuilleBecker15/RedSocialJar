@@ -9,19 +9,22 @@
   <meta name="author" content="Guillermo Becker">
 
   <title>Typing</title>
-  <link href="/ObligatorioJar//vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/ObligatorioJar/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <link href="/ObligatorioJar//css/blog-post.css" rel="stylesheet">
-  <script src="/ObligatorioJar//vendor/jquery/jquery.min.js"></script>
-  <script src="/ObligatorioJar//vendor/popper/popper.min.js"></script>
-  <script src="/ObligatorioJar//vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="/ObligatorioJar//js/headerLogin.js"></script>
+  <link href="/ObligatorioJar/css/blog-post.css" rel="stylesheet">
+  <script src="/ObligatorioJar/vendor/jquery/jquery.min.js"></script>
+  <script src="/ObligatorioJar/vendor/popper/popper.min.js"></script>
+  <script src="/ObligatorioJar/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./js/nodeApiManager.js"></script>
+  <script type="text/javascript" src="./js/storageApiManager.js"></script>
+  <script src="/ObligatorioJar/js/funciones.js"></script>
+  <script src="/ObligatorioJar/js/headerLogin.js"></script>
   <style type="text/css" media="screen">
 
 </style>
 </head>
 
-<body>
+<body onload="init();">
   <nav></nav>
 
   <div class="container">
@@ -47,7 +50,7 @@
                 <div role="tabpanel" class="tab-pane fade active show" id="todos" aria-labelledby="home-tab" aria-expanded="true">
                   <div class="separador">
                     <div class="media mb-4">
-                      <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                      <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="">
                       <div class="media-body">
                         <a href="/pages/perfil.html" title=""><h5 class="mt-1">Nombre de usuario</h5></a>
                         <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
@@ -58,7 +61,7 @@
 
                   <div class="separador">
                     <div class="media mb-4">
-                      <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                      <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="">
                       <div class="media-body">
                         <a href="/pages/perfil.html" title=""><h5 class="mt-1">Nombre de usuario</h5></a>
                         <p><b>Nombre:</b> Juan &nbsp; <b>Apellido:</b> Diaz &nbsp; <b>Pa&iacute;s:</b> Uruguay</p>
@@ -70,7 +73,7 @@
 
                   <div class="separador">
                     <div class="media mb-4">
-                      <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                      <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="">
                       <div class="media-body">
                         <a href="/pages/perfil.html" title=""><h5 class="mt-1">Nombre de usuario</h5></a>
                         <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
@@ -82,7 +85,7 @@
                 <div class="tab-pane fade" id="publicaciones" role="tabpanel" aria-labelledby="profile-tab" aria-expanded="false">
                   <div class="separador">
                     <div class="media mb-4">
-                      <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                      <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="">
                       <div class="media-body">
                         <a href="/pages/perfil.html" title=""><h5 class="mt-1">Nombre de usuario</h5></a>
                         <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
@@ -92,7 +95,7 @@
                   </div>
                   <div class="separador">
                     <div class="media mb-4">
-                      <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                      <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="">
                       <div class="media-body">
                         <a href="/pages/perfil.html" title=""><h5 class="mt-1">Nombre de usuario</h5></a>
                         <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
@@ -104,7 +107,7 @@
                 <div class="tab-pane fade" id="personas" role="tabpanel" aria-labelledby="profile-tab" aria-expanded="false">
                   <div class="separador">
                     <div class="media mb-4">
-                      <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                      <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="">
                       <div class="media-body">
                         <a href="/pages/perfil.html" title=""><h5 class="mt-1">Nombre de usuario</h5></a>
                         <p><b>Nombre:</b> Juan &nbsp; <b>Apellido:</b> Diaz &nbsp; <b>Pa&iacute;s:</b> Uruguay</p>
@@ -115,7 +118,7 @@
                   </div>
                   <div class="separador">
                     <div class="media mb-4">
-                      <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                      <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="">
                       <div class="media-body">
                         <a href="/pages/perfil.html" title=""><h5 class="mt-1">Nombre de usuario</h5></a>
                         <p><b>Nombre:</b> Juan &nbsp; <b>Apellido:</b> Diaz &nbsp; <b>Pa&iacute;s:</b> Uruguay</p>
