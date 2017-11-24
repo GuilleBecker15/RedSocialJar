@@ -1,0 +1,87 @@
+.input-container {
+		border-bottom: 1px solid #ccc;
+		border-radius: 4px;
+		font-family: "Lato","Helvetica Neue","Helvetica", "Arial", "Lucida Grande", sans-serif;
+		margin: 0;
+		font-size: 12px;
+		color: #222;
+
+	}
+	.fake-textarea {
+		padding: 3px;
+		border: solid 1px #ccc;
+		box-shadow: 0 1px 1px #d3d3d3;
+		border-radius: 4px;
+		font-size: 1.2em; 
+		width: 100%;
+		height: 111px; 
+		line-height: 26px;
+		font-family: arial;
+		box-sizing:	border-box;
+		background: #fff;
+		overflow-x: hidden;
+		overflow-y: auto;
+		cursor: text;
+	}
+	.tag{
+		border: solid 1px #ccc;
+		background: #ecf5f9;
+		color: #000; 
+		padding: 0 20px 0 9px; 
+		font-size: 12px; 
+		position: relative;
+		cursor: default;
+		float: left;
+		line-height: 20px; 
+		margin: 2px;
+		white-space: nowrap; 
+		overflow: hidden; 
+		text-overflow: ellipsis;
+		border-radius: 3px;
+		max-width: 120px; 
+	}
+	.tag:hover{
+		background: #cfeaf6;
+	}
+	.tag strong{
+		position: absolute;
+		background: url("../img/x.png") no-repeat center;
+		height: 15px;
+		height: 15px;
+		width: 15px; 
+		top: 2px;
+		right: 4px;
+		font-size: 16px;
+		cursor: pointer;
+		font-weight: bold;
+	}
+	.clearfix:after{
+		clear: both;
+	}
+	.clearfix:before, .clearfix:after{
+		content: "";
+		display: block;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+	}
+	.tag-input-wrapper{
+		position: relative;
+		float: left;
+		margin-top: 3px;
+		/*width: 100%;*/
+	}
+	input.tag-input{
+		/*width: 100%;*/
+	}
+	.fake-textarea input{
+		border: none!important;
+		background: transparent!important;
+		box-shadow: 0 0 0 transparent!important;
+	}
+	.novalido{
+		background: rgba(255, 0, 0, 0.4);
+	}
+	.novalido:hover{
+		background: rgba(255, 0, 0, 0.2);
+	}

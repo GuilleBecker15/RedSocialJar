@@ -1,0 +1,3 @@
+transicion en los mensaje de error de iniciar session y registro.
+modal para esperar la redireccion cuando no tiene permisos.
+pantalla de inicio, cambiale la leyedade iniciar session y registrarse.

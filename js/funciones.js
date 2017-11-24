@@ -10,7 +10,6 @@ $(document).ready(function() {
 
     if($('input[name=repassword]')[0]){
         $('input[name=repassword]')[0].addEventListener("keyup", function(){
-            // console.log("hola")
             'use strict';
             if (this.parentElement.parentElement.querySelectorAll('[name=password]')[0].value === this.value) {
                 this.setCustomValidity('');
@@ -41,7 +40,8 @@ function logIn(form){
     nodeApiManager.sign_in(data).done(function (response){
         if(storageApiManager.isSupported("localStorage")){
             storageApiManager.localSetItem("logueado","true");
-            location.reload();
+            // location.reload();
+            location.href = "/ObligatorioJar/pages/news.html";
         }else{
             console.log("Este navegador no soporta localStorage");
         }
@@ -67,7 +67,8 @@ function signUp(form){
         console.log("-------CREADO---------");
         if(storageApiManager.isSupported("localStorage")){
             storageApiManager.localSetItem("logueado","true");
-            location.reload();
+            // location.reload();
+            location.href = "/ObligatorioJar/pages/news.html";
         }else{
             console.log("Este navegador no soporta localStorage");
         }
@@ -107,4 +108,39 @@ function logueado(response){
 
 function runMyFunction(){
     alert("Hola");
+}
+
+function logOut(){
+    storageApiManager.localRemoveItem("logueado");
+    location.href = "/ObligatorioJar/index.html";
+}
+
+function publish(form){
+    alert("publicar");
+}
+
+function detectIE() {
+    var ua = window.navigator.userAgent;
+
+    var msie = ua.indexOf('MSIE ');
+    if (msie > 0) {
+        // IE 10 or older => return version number
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    }
+
+    var trident = ua.indexOf('Trident/');
+    if (trident > 0) {
+        // IE 11 => return version number
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+    }
+
+    var edge = ua.indexOf('Edge/');
+    if (edge > 0) {
+       // Edge (IE 12+) => return version number
+       return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+    }
+
+    // other browser
+    return false;
 }
