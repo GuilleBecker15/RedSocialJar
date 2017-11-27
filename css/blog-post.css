@@ -65,7 +65,13 @@ body {
     left: 0;
     right: 0;
 }
-.card.hovercard .useravatar img {
+.useravatar {
+    position: relative;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .useravatar img, .useravatar img {
     width: 100px;
     height: 100px;
     max-width: 100px;
@@ -226,7 +232,7 @@ body {
     text-align:center; 
     margin-top: 9px;"
 }
-.alertFail{
+.alertShow{
     display: block;
 }
 .nav-item{
@@ -295,4 +301,8 @@ textarea{
 
 #tags span{
     color: #ebebeb;
+}
+#changePass, #editUser{
+    padding: 7px;
+    float: right;
 }

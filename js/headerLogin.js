@@ -24,14 +24,14 @@ function init(){
             // $( "nav" ).load( "./../pages/headerLogin.html",listenerLogOut());
             $( "nav" ).load( "./../pages/headerLogin.html",function(){
                 document.getElementById('logOut').addEventListener("click", function(evt){
-                
+                    logOut();
                 });
             });
         }else{
             // $( "nav" ).load( "./pages/headerLogin.html",listenerLogOut());
             $( "nav" ).load( "./pages/headerLogin.html",function(){
                 document.getElementById('logOut').addEventListener("click", function(evt){
-                
+                    logOut();
                 });
                 
             });

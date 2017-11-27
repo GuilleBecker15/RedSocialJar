@@ -121,13 +121,35 @@ function mostrarComments(comments){
 		var divMediaMb_3 	= document.createElement('div'),
 			divImgUser 		= document.createElement('img'),
 			divMediaBody	= document.createElement('div'),
-			Anchor			= document.createElement('a'),
+			anchor			= document.createElement('a'),
 			h5	 			= document.createElement('h5'),
 			paragraph		= document.createElement('p');
 
-		divMediaMb_3.classList.add('media', 'mb-4');
-		divImgUser.classList.add('d-flex', 'mr-3', 'rounded-circle');
-		divImgUser.src = 
+		divMediaMb_3.classList.add('media');
+		divMediaMb_3.classList.add('mb-4');
+		divImgUser.classList.add('d-flex');
+		divImgUser.classList.add('mr-3');
+		divImgUser.classList.add('rounded-circle');
+		if(comments[i].photo){
+			divImgUser.src 	= comments[i].photo;
+		}else{
+			divImgUser.src 	= "/ObligatorioJar/img/50x50.png";
+		}
+			
+		divImgUser.alt 	= "Foto de perfil de usuario que realizo el comentario";
+		divMediaBody.classList.add("media-body");
+		anchor.href		= "./../pages/perfil.html#"+comments[i].user_id;
+		h5.classList.add('mt-0');
+		h5.textContent	= comments[i].nickname;
+		paragraph.textContent = comments[i].body;
 
+		anchor.appendChild(h5);
+		divMediaBody.appendChild(anchor);
+		divMediaBody.appendChild(paragraph);
+
+		divMediaMb_3.appendChild(divImgUser);
+		divMediaMb_3.appendChild(divMediaBody);
+
+		divComments.appendChild(divMediaMb_3);
 	}
 }

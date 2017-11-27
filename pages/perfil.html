@@ -21,6 +21,7 @@
     <script src="/ObligatorioJar/js/headerLogin.js"></script>
     <script src="/ObligatorioJar/js/tabsProfile.js"></script>
 
+
     </style>
   </head>
 
@@ -33,10 +34,12 @@
           <div class="col-lg-12 mx-auto">
             <div class="card hovercard">
               <div class="card-background">
-                <img class="card-bkimg" alt="" src="/ObligatorioJar/img/imgPerfil.jpg">
+                <!-- <img id="imgBackground" class="card-bkimg" alt="" src="/ObligatorioJar/img/imgPerfil.jpg"> -->
+                <img id="imgBackground" class="card-bkimg" alt="" >
               </div>
               <div class="useravatar">
-                <img alt="" src="/ObligatorioJar/img/imgPerfil.jpg">
+                <!-- <img id="imgAvatar" alt="" src="/ObligatorioJar/img/imgPerfil.jpg"> -->
+                <img id="imgAvatar" alt="" >
               </div>
                 <div class="card-info"> <span class="card-title">Nombre de usuario</span>
               </div>
@@ -52,11 +55,11 @@
                   <div class="hidden-xs">Mis publicaciones</div>
                 </button>
               </div>
-              <div class="btn-group" role="group">
+              <!-- <div class="btn-group" role="group">
                 <button type="button" id="following" class="btn btn-default" href="#misFotos" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                   <div class="hidden-xs">Mis fotos</div>
                 </button>
-              </div>
+              </div> -->
             </div>
 
             <div class="well">
@@ -66,38 +69,63 @@
                     <h3 class="text-center">Datos personales</h3>
                     <div>
                       <div class="row">
+                        <div class="alert alert-success w-100" id = "alertEditSuccess">
+                          <div class="col-sm-12">
+                            <center><strong>EXITO</strong></center>
+                            <center><p>Los datos del usuario se han actulizado con exito.</p></center>
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="row">
+                        <div class="alert alert-danger w-100" id = "alertEditDanger">
+                          <div class="col-sm-12">
+                            <center><strong>ERROR</strong></center>
+                            <center><p>Ha ocurrido un error al intentar actualizar los datos de usuario. Por favor intente mas tarde.</p></center>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="alert alert-danger w-100" id = "alertCargarDanger">
+                          <div class="col-sm-12">
+                            <center><strong>ERROR</strong></center>
+                            <center><p>Ha ocurrido un error al intentar obtener los datos del usuario. Por favor intente mas tarde.</p></center>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
                         <div class="col-md-12 form-group">
                           <label class="control-label" for="nickname">Nickname:</label>
-                          <input type="text" name="nickname" class="form-control" id="nicknameUser" value="Nickname de usuario">
+                          <input type="text" name="nickname" class="form-control" id="nicknameUser" disabled>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-12 form-group">
                           <label class="control-label" for="name">Nombre:</label>
-                          <input type="text" name="name" class="form-control" id="nameUser" value="Nombre de usuario">
+                          <input type="text" name="name" class="form-control" id="nameUser" disabled>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-12 form-group">
                           <label class="control-label" for="name">Apellido:</label>
-                          <input type="text" name="surname" class="form-control" id="surnameUser" value="Apellido de usuario">
+                          <input type="text" name="surname" class="form-control" id="surnameUser" disabled>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-12 form-group">
                           <label class="control-label" for="name">Correo electronico:</label>
-                          <input type="email" name="email" class="form-control" id="emailUser" value="Correo electronico de usuario">
+                          <input type="email" name="email" class="form-control" id="emailUser" disabled>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-12 form-group">
                           <label class="control-label" for="name">Pais:</label>
-                          <input type="text" name="name" class="form-control" id="countryUser" value="Pa&iacute;s de usuario">
+                          <input type="text" name="name" class="form-control" id="countryUser" disabled>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-12 form-group">
-                          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalCambiarContrasenia" style = "padding: 7px; float: right;"><span class = "fa fa-lock"></span>&nbsp;&nbsp;<b>Cambiar contrase&ntilde;a</b></button>
+                          <button id="editUser" type="button" class="btn btn-primary" onclick="editUserDisabled();">Editar</button>
+                          <button id="changePass" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalCambiarContrasenia"><span class = "fa fa-lock"></span>&nbsp;&nbsp;<b>Cambiar contrase&ntilde;a</b></button>
                         </div>
                       </div>
                     </div>
@@ -111,10 +139,10 @@
                       <div class="news w-100">
                         <div class="card my-4">
                         <div class="">
-                          <div class="card-body" id="news-body">
+                          <div class="card-body" id="posts-body">
                             <div class="separador">
                               <div class="media mb-4">
-                                <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                                <img class="d-flex mr-3 rounded-circle" src="./../img/50x50.png" alt="">
                                 <div class="media-body">
                                   <h5 class="mt-1">Nombre de usuario</h5>
                                   <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
@@ -124,7 +152,7 @@
                             </div>
                             <div class="separador">
                               <div class="media mb-4">
-                                <img class="d-flex mr-3 rounded-circle" src="/img/50x50.png" alt="">
+                                <img class="d-flex mr-3 rounded-circle" src="./../img/50x50.png" alt="">
                                 <div class="media-body">
                                   <h5 class="mt-1">Nombre de usuario</h5>
                                   <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
@@ -139,11 +167,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane fade in" id="misFotos">
+                <!-- <div class="tab-pane fade in" id="misFotos">
                   <div class="col-md-12 mx-auto">
                     <h3 class="text-center">Mis fotos</h3>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
 

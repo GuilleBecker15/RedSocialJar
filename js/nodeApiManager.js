@@ -21,7 +21,11 @@ var nodeApiManager = (function(){
 		});
 		return request;
 	};	
-	var update = function(resource, data){
+	var update = function(resource, data, id){
+		console.log("-----------DATA-=----------");
+		console.log(data);
+		console.log(JSON.stringify(data))
+		console.log("-----------DATA-=----------");
 		var url = URLBASE+resource+"/"+id;
 		var request = $.ajax({
 			url: url,

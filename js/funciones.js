@@ -56,9 +56,9 @@ function logIn(form){
         }
     }).fail(function(response){
         console.log("Hubo un error al iniciar sesion");
-        document.getElementById('alertLogin').classList.add('alertFail');
+        document.getElementById('alertLogin').classList.add('alertShow');
         setTimeout(function(){
-            document.getElementById('alertLogin').classList.remove('alertFail');
+            document.getElementById('alertLogin').classList.remove('alertShow');
         },5000);
     });
 
@@ -84,9 +84,9 @@ function signUp(form){
         }
     }).fail(function(response){
         console.log("Hubo un error al registrarse");
-        document.getElementById('alertSignUp').classList.add('alertFail');
+        document.getElementById('alertSignUp').classList.add('alertShow');
         setTimeout(function(){
-            document.getElementById('alertSignUp').classList.remove('alertFail');
+            document.getElementById('alertSignUp').classList.remove('alertShow');
         },5000);
     });
 
@@ -256,3 +256,4 @@ function getBase64(file) {
    };
    return reader;
 }
+
