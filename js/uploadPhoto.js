@@ -3,17 +3,20 @@ $(document).ready(function(){
 });
 
 function dropAndDragPhoto(){
-	
+
 	var imageLoader = document.getElementById('filePhoto');
+	// debugger
     imageLoader.addEventListener('change', handleImage, false);
 
 	function handleImage(e) {
+		// debugger
 	    var reader = new FileReader();
 	    reader.onload = function (event) {
 	        $('#uploader img').attr('src',event.target.result);
 	    }
+		    // file = reader.result.split(",")[1];
 		    reader.readAsDataURL(e.target.files[0]);
-		    
+		 	   
 		}
 
 		var dropbox;

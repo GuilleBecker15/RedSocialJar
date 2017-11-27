@@ -51,13 +51,23 @@ var nodeApiManager = (function(){
 		})
 		return request;
 	};
+	var busqueda = function(resource, data){
+		var url = URLBASE+resource+"?";
+		console.log("---------------------")
+		$.each(data, function(index,value){
+			url += index+"="+value+"&";
+		});
+		var request = $.getJSON(url);
+		return request;
+	};
 	return {
 		all: all,
 		show: show,
 		create: create,
 		update: update,
 		destroy: destroy,
-		sign_in: sign_in
+		sign_in: sign_in,
+		busqueda: busqueda
 	}
 })()
 

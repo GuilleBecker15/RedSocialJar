@@ -12,7 +12,10 @@ $(document).ready(function(){
 	for (j ; j < tagInput.length; j++) {
 	console.log("hola inputs!!!");
 		tagInput[j].addEventListener("keypress",function(e){
-			if (e.keyCode==32 || e.keyCode == 13){
+			var evento = e;
+			console.log(evento);
+			var keyCode = e.keyCode || e.which; 
+			if (keyCode ===32 || keyCode === 13){
 				console.log(e.target);
 				e.target.value = e.target.value.trim();
 				console.log(e.target.value);
@@ -24,9 +27,10 @@ $(document).ready(function(){
 					console.log(t.value);
 					let span = document.createElement('span');
 					span.classList.add('tag');
-					if(!validarMail(e.target)){
-						span.classList.add('novalido');
-					}
+					span.classList.add('dataForm');
+					// if(!validarMail(e.target)){
+					// 	span.classList.add('novalido');
+					// }
 					let txt = document.createTextNode(e.target.value);
 					span.appendChild(txt);
 					let x = document.createElement('strong');

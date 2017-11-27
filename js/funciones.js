@@ -19,7 +19,15 @@ $(document).ready(function() {
         })
     }
 
-    
+   
+    $('#publishForm').on('keyup keypress', function(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 13) { 
+        e.preventDefault();
+        return false;
+      }
+    });
+
 });
 
 function showPassword() {
@@ -39,7 +47,8 @@ function logIn(form){
 
     nodeApiManager.sign_in(data).done(function (response){
         if(storageApiManager.isSupported("localStorage")){
-            storageApiManager.localSetItem("logueado","true");
+            console.log(response);
+            storageApiManager.localSetItem("logueado",JSON.stringify(response));
             // location.reload();
             location.href = "/ObligatorioJar/pages/news.html";
         }else{
@@ -66,7 +75,8 @@ function signUp(form){
     nodeApiManager.create("users", data).done(function(response){
         console.log("-------CREADO---------");
         if(storageApiManager.isSupported("localStorage")){
-            storageApiManager.localSetItem("logueado","true");
+            // storageApiManager.localSetItem("logueado","true");
+            storageApiManager.localSetItem("logueado",JSON.stringify(response));
             // location.reload();
             location.href = "/ObligatorioJar/pages/news.html";
         }else{
@@ -116,7 +126,44 @@ function logOut(){
 }
 
 function publish(form){
-    alert("publicar");
+    console.log(form);
+    console.log(form.getElementsByClassName("dataForm"));
+    var fields = form.getElementsByClassName("dataForm"); 
+
+    var data = {};
+    var tags = "";
+    $.each(fields, function(key, value){
+        console.log(value.nodeName);
+        if(value.nodeName == "INPUT" || value.nodeName == "TEXTAREA" ){
+            data[value.name] = value.value;
+        }
+        if(value.nodeName == "SPAN"){
+            tags += value.textContent+" ";
+        }
+        if(value.nodeName == "IMG"){
+            data[value.name] = value.src;
+        }
+    });
+    data["tags"] = tags;
+    data["created_at"] = Date();
+    // debugger
+    data["user_id"] = userLoguedo["id"];
+    console.log("--------DATOSSSS----------------------");
+    console.log(data);
+
+    console.log("------------------------------");
+    var data = JSON.stringify(data);
+
+    nodeApiManager.create("posts", data)
+        .done(function(response){
+            location.href = "/ObligatorioJar/pages/posts.html#"+response["id"];
+        }).fail(function(response){
+            console.log(response);
+        });
+
+    //Limpio el formulario
+
+    return false;
 }
 
 function detectIE() {
@@ -143,4 +190,69 @@ function detectIE() {
 
     // other browser
     return false;
+}
+
+
+// var form = document.getElementById('parse-me');
+
+/*
+var serialize = function (form) {
+    return Array.from(new FormData(form)
+        .entries())
+        .reduce(function (response, current) {
+            response[current[0]] = current[1];
+            return response
+        }, {})
+};
+*/
+
+// var serialize = function (form) {
+//     var field,
+//         l,
+//         s = [];
+
+//     if (typeof form == 'object' && form.nodeName == "FORM") {
+//         var len = form.elements.length;
+
+//         for (var i = 0; i < len; i++) {
+//             field = form.elements[i];
+//             if (field.name && !field.disabled && field.type != 'button' && field.type != 'file' && field.type != 'hidden' && field.type != 'reset' && field.type != 'submit') {
+//                 if (field.type == 'select-multiple') {
+//                     l = form.elements[i].options.length;
+
+//                     for (var j = 0; j < l; j++) {
+//                         if (field.options[j].selected) {
+//                             s[s.length] = encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[j].value);
+//                         }
+//                     }
+//                 }
+//                 else if ((field.type != 'checkbox' && field.type != 'radio') || field.checked) {
+//                     s[s.length] = encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value);
+//                 }
+//             }
+//         }
+//     }
+//     return s.join('&').replace(/%20/g, '+');
+// };
+
+
+// form.addEventListener('submit', function (event) {
+//     event.preventDefault();
+//     var data = serialize(form);
+//     console.log(data);
+//     document.getElementById('output').textContent = JSON.stringify(data)
+// });
+
+function getBase64(file) {
+   var reader = new FileReader();
+   reader.readAsDataURL(file);
+   reader.onload = function () {
+     var file = reader.result.split(",")[1];
+     // uploadImage(refreshToken, access_token, file)
+   };
+   reader.onerror = function (error) {
+     console.log('Error: ', error);
+     return reader.error;
+   };
+   return reader;
 }

@@ -1,0 +1,1 @@
+var userLoguedo = JSON.parse(storageApiManager.localGetItem("logueado"));

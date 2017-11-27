@@ -1,5 +1,5 @@
 var login = storageApiManager.localGetItem("logueado");
-if (login == "true")
+if (login)
     login = true;
 else
     login = false;

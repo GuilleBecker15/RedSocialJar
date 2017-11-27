@@ -20,6 +20,7 @@
     <script src="/ObligatorioJar/js/headerLogin.js"></script>
     <script type="text/javascript" src="/ObligatorioJar/js/tags.js"></script>
     <script type="text/javascript" src="/ObligatorioJar/js/uploadPhoto.js"></script>
+    <script type="text/javascript" src="/ObligatorioJar/js/newPosts.js"></script>
 </head>
 <body onload="init();">
 	<nav></nav>
@@ -37,9 +38,9 @@
 							Todos los campos marcados con <span class="bold required"></span>son obligatorios.
 						</div>
 						<label class="bold required">Titulo</label>
-						<input class="w-100" type="text" name="titulo" placeholder="Escriba el titulo aqui" required>
+						<input class="w-100 dataForm" type="text" name="title" placeholder="Escriba el titulo aqui" required>
 						<label class="bold required">Cuerpo</label>
-						<textarea class="w-100"> </textarea>
+						<textarea class="w-100 dataForm" name="body" required> </textarea>
 					</div>
 		
 					<div class="col-md-3">
@@ -53,9 +54,14 @@
 						</div>
 						<label class="bold required">Imagen del post</label>
 						<div id="uploader" onclick="$('#filePhoto').click()">Click here or drag here your images for preview and set userprofile_picture data
-						    <img src=""/>
+						    <img class="dataForm" name="photo" />
 						</div>
 						<input type="file" name="userprofile_picture"  id="filePhoto" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-9">
+						<button type="submit" class="btn btn-primary right" id="publicarPost">Publicar</button>
 					</div>
 				</div>
 			</form>
