@@ -19,6 +19,7 @@
     <script type="text/javascript" src="./../js/storageApiManager.js"></script>
     <script src="./../js/funciones.js"></script>
     <script src="/ObligatorioJar/js/headerLogin.js"></script>
+    <script type="text/javascript" src="/ObligatorioJar/js/news.js"></script>
 
   </head>
 
@@ -28,43 +29,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-10 mx-auto">
-          <div class="publicar">
-              <div class="card my-4">
-              <h5 class="card-header">Escribe lo que desear publicar:</h5>
-              <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    <textarea class="form-control" rows="4"></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-primary float-right">Publicar</button>
-                </form>
-              </div>
-            </div>
-          </div>
             <div class="news">
               <div class="card my-4">
                 <h5 class="card-header">Seccion de publicaciones:</h5>
                 <div class="card-body" id="news-body">
-                  <div class="separador">
-                  <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="./../img/50x50.png" alt="">
-                    <div class="media-body">
-                      <a href="./../pages/perfil.html" title=""><h5 class="mt-1">Nombre de usuario</h5></a>
-                      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                      <a type="button" class="btn btn-primary float-right" href="./../pages/posts.html">Ver publicación</a>
+                  <div class="row">
+                    <div class="alert alert-danger w-100" id = "alertCargarPostError">
+                      <div class="col-sm-12">
+                        <center><strong>ERROR</strong></center>
+                        <center><p>Ha ocurrido un error al intentar obtener el listado de post. Por favor intente mas tarde.</p></center>
+                      </div>
                     </div>
                   </div>
-                  </div>
-                  <div class="separador">
-                  <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="./../img/50x50.png" alt="">
-                    <div class="media-body">
-                      <a href="./../pages/perfil.html" title=""><h5 class="mt-1">Nombre de usuario</h5></a>
-                      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                      <a type="button" class="btn btn-primary float-right" href="./../pages/posts.html">Ver publicación</a>
-                    </div>
-                  </div>
-                </div>
                 </div>
               </div>
             </div>

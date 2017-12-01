@@ -44,7 +44,22 @@
             <label for="recipient-name" class="form-control-label">Repita contrase&ntilde;a:</label>
             <input type="password" class="form-control" id="recipient-repeat-password" name="repassword" required>
           </div>
-          
+          <div class="row">
+            <center>
+              <div class="col-sm-12">           
+                  <img id="imagenPreview" src="img/sinFoto.png" alt="Imagen" title="Imagen" style="width: 175px; height: 175px; border-radius: 50%; padding: 8px;">
+              </div>
+            </center>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-12">
+              <center><label class="btn btn-primary btn-file">
+                  <span class = "fa fa-folder"></span>&nbsp;&nbsp;Buscar foto de perfil<input id="fotoPerfil" name="fotoPerfil" type="file" style="display: none;" onchange="readURL(this);" accept="image/jpg,image/png,image/jpg,image/gif,image/jpg,image/jpeg,image/bmp"/>
+              </label></center>
+            </div>
+          </div>
+          <br>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn btn-primary">Registrarme</button>

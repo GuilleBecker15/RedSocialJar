@@ -41,7 +41,7 @@
                 <!-- <img id="imgAvatar" alt="" src="/ObligatorioJar/img/imgPerfil.jpg"> -->
                 <img id="imgAvatar" alt="" >
               </div>
-                <div class="card-info"> <span class="card-title">Nombre de usuario</span>
+                <div class="card-info"> <span id="nicknameTitle" class="card-title">Nombre de usuario</span>
               </div>
             </div>
             <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
@@ -70,6 +70,14 @@
                     <div>
                       <div class="row">
                         <div class="alert alert-success w-100" id = "alertEditSuccess">
+                          <div class="col-sm-12">
+                            <center><strong>EXITO</strong></center>
+                            <center><p>Los datos del usuario se han actulizado con exito.</p></center>
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="row">
+                        <div class="alert alert-success w-100" id = "alertChangePassSuccess">
                           <div class="col-sm-12">
                             <center><strong>EXITO</strong></center>
                             <center><p>Los datos del usuario se han actulizado con exito.</p></center>
@@ -124,7 +132,7 @@
                       </div>
                       <div class="row">
                         <div class="col-md-12 form-group">
-                          <button id="editUser" type="button" class="btn btn-primary" onclick="editUserDisabled();">Editar</button>
+                          <button id="editUser" type="button" class="btn btn-primary" onclick="editUserEnabled();">Editar</button>
                           <button id="changePass" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalCambiarContrasenia"><span class = "fa fa-lock"></span>&nbsp;&nbsp;<b>Cambiar contrase&ntilde;a</b></button>
                         </div>
                       </div>
@@ -140,7 +148,7 @@
                         <div class="card my-4">
                         <div class="">
                           <div class="card-body" id="posts-body">
-                            <div class="separador">
+                            <!-- <div class="separador">
                               <div class="media mb-4">
                                 <img class="d-flex mr-3 rounded-circle" src="./../img/50x50.png" alt="">
                                 <div class="media-body">
@@ -159,7 +167,7 @@
                                   <a type="button" class="btn btn-primary float-right" href="/pages/publicacion.html">Ver publicación</a>
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                       </div>
@@ -190,10 +198,26 @@
         <h4 class="modal-title">Cambiar contraseña</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <form id="formCambiarcontra" action="#" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+      <form id="formCambiarcontra" action="#" onsubmit="return changePass(this);" method="PATCH" enctype="multipart/form-data" accept-charset="utf-8">
         <div id="bodyModalChangePass" class="modal-body">
           <div class = "container-fluid">
             <div id="cambiarContra">
+              <div class="row">
+                <div class="alert alert-danger w-100" id = "alertChangePassFail">
+                  <div class="col-sm-12">
+                    <center><strong>ERROR</strong></center>
+                    <center><p>La contrase&ntilde;a actual es incorrecta.</p></center>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="alert alert-danger w-100" id = "alertChangePassError">
+                  <div class="col-sm-12">
+                    <center><strong>ERROR</strong></center>
+                    <center><p>Hubo un error con el servidor al actualizar la contrase&ntilde;a. Por favor intenta mas tarde.</p></center>
+                  </div>
+                </div>
+              </div>
               <div class="row">
                 <div class="form-group col-sm-12">
                   <label for="passold" class="control-label"><b>Contraseña actual</b></label><br>
@@ -203,13 +227,13 @@
               <div class = "row">
                 <div class="form-group col-sm-12">
                   <label for="pass1" class="control-label" id="contranueva1"><b>Contraseña nueva</b></label><br>
-                  <input type="password" class = "form-control" name = "contrasenia" id="contrasenia1" required>
+                  <input type="password" class = "form-control" name = "password" id="password" required>
                 </div>
               </div>
               <div class = "row">
                 <div class="form-group col-sm-12">
                   <label for="pass2" class="control-label" id="contranueva2"><b>Confirmar contraseña</b></label><br>
-                  <input type="password" class = "form-control" name = 'contrasenia2' id="contrasenia2" required>
+                  <input type="password" class = "form-control" name = 'repassword' id="repassword" required>
                 </div>
               </div>
             </div>

@@ -1,21 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="/pages/news.html">Typing</a>
+    <a class="navbar-brand" href="./../pages/news.html">Typing</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-    <form class="form-inline my-2 my-lg-0" action="../pages/busqueda.html" >
+    <form class="form-inline my-2 my-lg-0" action="../pages/busqueda.html" onsubmit="return search(this);" method="GET">
       <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/ObligatorioJar/pages/news.html">Inicio
+          <a class="nav-link" href="/ObligatorioJar/pages/news.html">Posts
           </a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="/ObligatorioJar/pages/perfil.html">Perfil
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/ObligatorioJar/pages/newPost.html">Crear Post
             <span class="sr-only">(current)</span>
           </a>
         </li>

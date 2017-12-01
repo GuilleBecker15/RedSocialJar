@@ -29,7 +29,8 @@ var nodeApiManager = (function(){
 		var url = URLBASE+resource+"/"+id;
 		var request = $.ajax({
 			url: url,
-			type: 'PUT',
+			// type: 'PUT',
+			type: 'PATCH',
 			contentType: "application/json",
 			data: data
 		});

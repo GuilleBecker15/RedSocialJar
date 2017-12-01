@@ -6,3 +6,9 @@ al registrar, registra pass y password sin encriptar
 al registar o editar, chequer que el mail o nickname no existan
 ponerle un cosito de cargando al iniciar sesion o registrar o hacer culaquier peticion.
 agregar la opcion nuevo post al header
+
+Borrar modalregister.html y modalSignIn.html
+
+falta publicar comentario
+
+en perfil editar foto (cambiarla)
