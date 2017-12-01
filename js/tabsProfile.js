@@ -6,25 +6,13 @@ $(document).ready(function() {
 		document.getElementById('datosPersonales').classList.add("show");
 		document.getElementById('misPublicaciones').classList.remove("active");
 		document.getElementById('misPublicaciones').classList.remove("show");
-		// document.getElementById('misFotos').classList.remove("active");
-		// document.getElementById('misFotos').classList.remove("show");
 	});
 	document.getElementById('favorites').addEventListener("click", function(){
 		document.getElementById('misPublicaciones').classList.add("active");
 		document.getElementById('misPublicaciones').classList.add("show");
 		document.getElementById('datosPersonales').classList.remove("active");
 		document.getElementById('datosPersonales').classList.remove("show");
-		// document.getElementById('misFotos').classList.remove("active");
-		// document.getElementById('misFotos').classList.remove("show");
 	});
-	// document.getElementById('following').addEventListener("click", function(){
-	// 	document.getElementById('misFotos').classList.add("active");
-	// 	document.getElementById('misFotos').classList.add("show");
-	// 	document.getElementById('misPublicaciones').classList.remove("active");
-	// 	document.getElementById('misPublicaciones').classList.remove("show");
-	// 	document.getElementById('datosPersonales').classList.remove("active");
-	// 	document.getElementById('datosPersonales').classList.remove("show");
-	// });
 	checkSamePass('password', 'repassword');
 });
 
@@ -105,81 +93,8 @@ function editUser(){
 			showAlert("alertEditDanger");
 		})
 }
-// function showAlert(id){
-// 	document.getElementById(id).classList.add('alertShow');
-//     setTimeout(function(){
-//         document.getElementById(id).classList.remove('alertShow');
-//     },5000);
-// }
-// function cargarPostsUser(posts){
-
-// 	var divComments = document.getElementById('posts-body');
-
-// 	if(posts.length == 0){
-// 		var h5 = document.createElement('h5');
-// 		h5.classList.add('center');
-// 		h5.textContent = "No hay publicaciones para mostrar."
-
-// 		divComments.appendChild(h5);
-// 	}
-
-// 	for(var i = 0; i<posts.length; i++){
-// 		var separador		= document.createElement('div'),
-// 			divMediaMb_4 	= document.createElement('div'),
-// 			divUserAvatar	= document.createElement('div'),
-// 			divImgUser 		= document.createElement('img'),
-// 			divMediaBody	= document.createElement('div'),
-// 			h5	 			= document.createElement('h5'),
-// 			paragraph		= document.createElement('p'),
-// 			anchor			= document.createElement('a');
-
-// 		separador.classList.add('separador');
-// 		divMediaMb_4.classList.add('media', 'mb-4');
-// 		divUserAvatar.classList.add('useravatar');
-// 		divImgUser.classList.add('d-flex');
-// 		divImgUser.classList.add('mr-3');
-// 		divImgUser.classList.add('rounded-circle');
-// 		if(posts[i].photo){
-// 			divImgUser.src 	= posts[i].photo;
-// 		}else{
-// 			divImgUser.src 	= "/ObligatorioJar/img/50x50.png";
-// 		}
-		
-// 		divImgUser.alt 	= "Foto del post.";
-// 		divMediaBody.classList.add("media-body");
-// 		// anchor.href		= "./../pages/perfil.html#"+comments[i].user_id;
-// 		h5.classList.add('mt-1');
-// 		h5.textContent	= posts[i].title;
-// 		paragraph.textContent = posts[i].body;
-// 		anchor.classList.add('btn', 'btn-primary', 'float-right');
-// 		anchor.classList.add('btn-primary');
-// 		anchor.classList.add('float-right');
-// 		// button.setAttribute('type', 'button');
-// 		anchor.href = "./../pages/posts.html#"+posts[i].id;
-// 		anchor.textContent = "Ver post.";
-
-// 		// if(tipo == "news"){
-// 		// 	anchor = document.createElement('a');
-// 		// 	anchor.href = "./../pages/perfil.html#"+post[i].user_id;
-// 		// 	h5.textContent = pa
-// 		// }
-
-// 		divMediaBody.appendChild(h5);
-// 		divMediaBody.appendChild(paragraph);
-// 		divMediaBody.appendChild(anchor);
-
-// 		divUserAvatar.appendChild(divImgUser);
-
-// 		divMediaMb_4.appendChild(divUserAvatar);
-// 		divMediaMb_4.appendChild(divMediaBody);
-// 		separador.appendChild(divMediaMb_4);
-
-// 		divComments.appendChild(separador);
-// 	}
-// }
 
 function changePass(form){
-	// $('#formCambiarcontra')[0].getElementsByTagName('input')
 	var fields = form.getElementsByTagName('input');
 	var oldPassword = fields[0].value,
 		newPassword = fields[1].value,

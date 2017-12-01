@@ -8,7 +8,6 @@ $(document).ready(function(){
 			console.log(response);
 			console.log("============SHOW==========================")
 			dataPost = response;
-			// nicknamePublisher = getNicknamePublisher(response["user_id"]);
 
 			nodeApiManager.show("users", dataPost["user_id"])
 			.done(function(response){
@@ -22,15 +21,11 @@ $(document).ready(function(){
 				console.log("-----------FALLO----------")
 			})
 
-			// mostrarDatos();
-			// debugger
 		})
 		.fail(function(response){
 			console.log(response);
 		});
 
-
-	// mostrarDatos();
 });
 
 function mostrarDatos(){

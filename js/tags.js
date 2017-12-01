@@ -28,9 +28,6 @@ $(document).ready(function(){
 					var span = document.createElement('span');
 					span.classList.add('tag');
 					span.classList.add('dataForm');
-					// if(!validarMail(e.target)){
-					// 	span.classList.add('novalido');
-					// }
 					var txt = document.createTextNode(e.target.value);
 					span.appendChild(txt);
 					var x = document.createElement('strong');
@@ -72,7 +69,6 @@ $(document).ready(function(){
 									console.log(hijo[0]);
 
 								hijo[0].remove();
-								//evt.target.removeChild(hijo[0]);
 								}
 							}
 						}
@@ -84,7 +80,6 @@ $(document).ready(function(){
 			}
 
 			});
-
 	}
 
 });

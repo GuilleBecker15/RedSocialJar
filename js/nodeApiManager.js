@@ -59,9 +59,6 @@ var nodeApiManager = (function(){
 	var busqueda = function(resource, data){
 		var url = URLBASE+resource+"?"+data;
 		console.log("---------------------")
-		// $.each(data, function(index,value){
-		// 	url += index+"="+value+"&";
-		// });
 		var request = $.getJSON(url);
 		return request;
 	};
@@ -81,5 +78,3 @@ var nodeApiManager = (function(){
 		allWithFilter: allWithFilter
 	}
 })()
-
-// function ajaxCall(type, url, data, )

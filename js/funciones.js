@@ -8,28 +8,6 @@ $(document).ready(function() {
         $(this).removeClass("btn-default").addClass("btn-primary");   
     });
 
-    // if($('input[name=repassword]')[0]){
-    //     $('input[name=repassword]')[0].addEventListener("keyup", function(){
-    //         'use strict';
-    //         if (this.parentElement.parentElement.querySelectorAll('[name=password]')[0].value === this.value) {
-    //             this.setCustomValidity('');
-    //         } else {
-    //             this.setCustomValidity('Passwords deben coincidir');
-    //         }
-    //     })
-    // }
-
-
-
-   
-    // $('#publishForm').on('keyup keypress', function(e) {
-    //   var keyCode = e.keyCode || e.which;
-    //   if (keyCode === 13) { 
-    //     e.preventDefault();
-    //     return false;
-    //   }
-    // });
-
 });
 
 function showPassword() {
@@ -103,18 +81,11 @@ function signUp(form){
 }
 
 function serializeForm(form, action){
-    // let data = new Array();
     var data = {};
-    // let inputs = form.getElementsByTagName('input');
     var inputs = $(form).find('input');
     inputs.each(function(index, value){
         data[value.name] = value.value;
     });
-    // for (let i = 0; i < inputs.length; i++) {
-    //     data[inputs[i].name] = inputs[i].value;
-    // }
-    // console.log(data);
-    // debugger
     if(action == 'register'){
         var photo = $(form).find('img')[0];
         data['photo'] = photo.src;
@@ -123,29 +94,17 @@ function serializeForm(form, action){
     return dataJson;
 }
 
-// function logueado(response){
-//     console.log("-----------LOGIN----------------")
-//     console.log(JSON.stringify(response))
-//     console.log("-----------LOGIN----------------")
-// }
-
-
-
-
 function logOut(){
     storageApiManager.localRemoveItem("logueado");
     location.href = "/ObligatorioJar/index.html";
 }
 
 function publish(form){
-    console.log(form);
-    console.log(form.getElementsByClassName("dataForm"));
     var fields = form.getElementsByClassName("dataForm"); 
 
     var data = {};
     var tags = "";
     $.each(fields, function(key, value){
-        console.log(value.nodeName);
         if(value.nodeName == "INPUT" || value.nodeName == "TEXTAREA" ){
             data[value.name] = value.value;
         }
@@ -158,12 +117,7 @@ function publish(form){
     });
     data["tags"] = tags;
     data["created_at"] = Date();
-    // debugger
     data["user_id"] = userLoguedo["id"];
-    console.log("--------DATOSSSS----------------------");
-    console.log(data);
-
-    console.log("------------------------------");
     var data = JSON.stringify(data);
 
     nodeApiManager.create("posts", data)
@@ -172,8 +126,6 @@ function publish(form){
         }).fail(function(response){
             console.log(response);
         });
-
-    //Limpio el formulario
 
     return false;
 }
@@ -205,55 +157,6 @@ function detectIE() {
 }
 
 
-// var form = document.getElementById('parse-me');
-
-/*
-var serialize = function (form) {
-    return Array.from(new FormData(form)
-        .entries())
-        .reduce(function (response, current) {
-            response[current[0]] = current[1];
-            return response
-        }, {})
-};
-*/
-
-// var serialize = function (form) {
-//     var field,
-//         l,
-//         s = [];
-
-//     if (typeof form == 'object' && form.nodeName == "FORM") {
-//         var len = form.elements.length;
-
-//         for (var i = 0; i < len; i++) {
-//             field = form.elements[i];
-//             if (field.name && !field.disabled && field.type != 'button' && field.type != 'file' && field.type != 'hidden' && field.type != 'reset' && field.type != 'submit') {
-//                 if (field.type == 'select-multiple') {
-//                     l = form.elements[i].options.length;
-
-//                     for (var j = 0; j < l; j++) {
-//                         if (field.options[j].selected) {
-//                             s[s.length] = encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[j].value);
-//                         }
-//                     }
-//                 }
-//                 else if ((field.type != 'checkbox' && field.type != 'radio') || field.checked) {
-//                     s[s.length] = encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value);
-//                 }
-//             }
-//         }
-//     }
-//     return s.join('&').replace(/%20/g, '+');
-// };
-
-
-// form.addEventListener('submit', function (event) {
-//     event.preventDefault();
-//     var data = serialize(form);
-//     console.log(data);
-//     document.getElementById('output').textContent = JSON.stringify(data)
-// });
 
 function getBase64(file) {
    var reader = new FileReader();
@@ -294,7 +197,6 @@ function checkSamePass(password, repassword){
 
 function cargarPostsUser(posts, divParent){
 
-    // var divComments = document.getElementById('posts-body');
     var divComments = document.getElementById(divParent);
 
     if(posts.length == 0){
@@ -336,15 +238,8 @@ function cargarPostsUser(posts, divParent){
         anchor.classList.add('btn', 'btn-primary', 'float-right');
         anchor.classList.add('btn-primary');
         anchor.classList.add('float-right');
-        // button.setAttribute('type', 'button');
         anchor.href = "./../pages/posts.html#"+posts[i].id;
         anchor.textContent = "Ver post.";
-
-        // if(tipo == "news"){
-        //  anchor = document.createElement('a');
-        //  anchor.href = "./../pages/perfil.html#"+post[i].user_id;
-        //  h5.textContent = pa
-        // }
 
         divMediaBody.appendChild(h5);
         divMediaBody.appendChild(paragraph);
