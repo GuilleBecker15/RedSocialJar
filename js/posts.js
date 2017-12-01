@@ -6,6 +6,7 @@ $(document).ready(function(){
 	nodeApiManager.show("posts", idPost)
 		.done(function(response){
 			console.log(response);
+			console.log("============SHOW==========================")
 			dataPost = response;
 			// nicknamePublisher = getNicknamePublisher(response["user_id"]);
 
@@ -17,6 +18,8 @@ $(document).ready(function(){
 				nicknamePublisher = response["nickname"];
 				mostrarDatos();
 				cargarComments();
+			}).fail(function(response){
+				console.log("-----------FALLO----------")
 			})
 
 			// mostrarDatos();
@@ -52,7 +55,7 @@ function mostrarDatos(){
 	$.each(tags, function(index, value){
 		tag 			= document.createElement('a');
 		tag.textContent = value;
-		tag.href 		= "./../pages/busqueda.html#tags_"+value;
+		tag.href 		= "./../pages/busqueda.html?tags_like="+value;
 		tagsElement.appendChild(tag);
 		if (index+1 < tags.length ){
 			var span = document.createElement('span');
@@ -89,13 +92,13 @@ function publishComment(form){
 	nodeApiManager.create("comments", data)
 		.done(function(response){
 			console.log(response);
-			//Crear un nuevo card view con la info del commentario.
+			cargarComments();
 		})
 		.fail(function(response){
 			console.log(response);
 		});
 
-
+	form.reset();
 	return false;
 }
 
@@ -103,10 +106,8 @@ function cargarComments(){
 	var data = {};
 	data["post_id"] = idPost;
 
-	nodeApiManager.busqueda("comments", data)
+	nodeApiManager.allWithFilter("comments", "post_id", data["post_id"])
 		.done(function(response){
-			console.log("==========Comentarios del post============");
-			console.log(response);
 			mostrarComments(response);
 		})
 		.fail(function(response){
@@ -116,6 +117,7 @@ function cargarComments(){
 
 function mostrarComments(comments){
 	var divComments = document.getElementById('divComments');
+	divComments.innerHTML = "";
 
 	for(var i = 0; i<comments.length; i++){
 		var divMediaMb_3 	= document.createElement('div'),

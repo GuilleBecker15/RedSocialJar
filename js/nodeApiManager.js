@@ -57,14 +57,19 @@ var nodeApiManager = (function(){
 		return request;
 	};
 	var busqueda = function(resource, data){
-		var url = URLBASE+resource+"?";
+		var url = URLBASE+resource+"?"+data;
 		console.log("---------------------")
-		$.each(data, function(index,value){
-			url += index+"="+value+"&";
-		});
+		// $.each(data, function(index,value){
+		// 	url += index+"="+value+"&";
+		// });
 		var request = $.getJSON(url);
 		return request;
 	};
+	var allWithFilter = function(resource, field, value){
+		var url = URLBASE+resource+"?"+field+"="+value;
+		var request = $.getJSON(url);
+		return request;
+	}
 	return {
 		all: all,
 		show: show,
@@ -72,7 +77,8 @@ var nodeApiManager = (function(){
 		update: update,
 		destroy: destroy,
 		sign_in: sign_in,
-		busqueda: busqueda
+		busqueda: busqueda,
+		allWithFilter: allWithFilter
 	}
 })()
 

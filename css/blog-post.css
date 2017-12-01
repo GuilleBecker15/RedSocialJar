@@ -185,6 +185,7 @@ textarea{
 
 #uploader:hover{color:#999;}
 
+
 #filePhoto{
     display:none;
 }
@@ -240,4 +241,7 @@ h5.mt-1 {
 }
 #textareaPost{
     height: 150px;
+}
+.separador:hover{
+    background-color: #D8D8D8;
 }

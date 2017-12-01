@@ -36,7 +36,6 @@
           <hr>
             <p id="created_at">Posteado el 11 de Octubre de 2017 a las 12:00 PM</p>
           <hr>
-          <!-- <img id="postImage" class="img-fluid rounded" src="/ObligatorioJar/img/900x300.png" alt="Imagen principal del post"> -->
           <div class="card hovercard">
               <div class="card-background">
                 <img class="card-bkimg" alt="" src="/ObligatorioJar/img/900x300.png">
@@ -47,87 +46,28 @@
             </div>
           <hr>
           <div id="postBody">
-           <!--  
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-
-            <blockquote class="blockquote">
-              <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <div class="blockquote-footer">Someone famous in
-                <cite title="Source Title">Source Title</cite>
-              </div>
-            </blockquote>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p> -->
           </div>
           <hr>
             <p id="tags"><strong>Tags:</strong>
             </p>
           <hr>
+          <hr>
+          <h3 class="center">Comentarios</h3>
+          <hr>
+          <div id="divComments">
+             
+          </div>
             <div class="card my-4">
               <h5 class="card-header">Deje su comentario:</h5>
               <div class="card-body">
                 <form id="formPublishComment" onsubmit="return publishComment(this)" method="POST" accept-charset="utf-8">
                   <div class="form-group">
-                    <textarea class="form-control" rows="3" id="textareaPost"></textarea>
+                    <textarea class="form-control" rows="3" id="textareaPost" required></textarea>
                   </div>
                   <button type="submit" class="btn btn-primary">Enviar comentario</button>
                 </form>
               </div>
             </div>
-          <hr>
-          <h3 class="center">Comentario</h3>
-          <hr>
-          <div id="divComments">
-             <!-- <div class="media mb-4">
-              <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="Foto de perfil del usuario">
-              <div class="media-body">
-                <a href="/pages/perfil.html" title=""><h5 class="mt-0">Nombre de usuario</h5></a>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-              <div class="media mb-4">
-              <img class="d-flex mr-3 rounded-circle" src="./../img/50x50.png" alt="">
-              <div class="media-body">
-                <h5 class="mt-1">Nombre de usuario</h5>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                <button type="button" class="btn btn-primary float-right" href="/pages/publicacion.html">Ver publicación</button>
-              </div>
-            </div>
-
-             -->
-            <!--
-            <div class="media mb-4">
-              <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="Foto de perfil del usuario">
-              <div class="media-body">
-                <a href="/pages/perfil.html" title=""><h5 class="mt-0">Nombre de usuario</h5></a>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-                <div class="media mt-4">
-                  <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="Foto de perfil del usuario">
-                  <div class="media-body">
-                  <a href="/pages/perfil.html" title=""><h5 class="mt-0">Nombre de usuario</h5></a>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                  </div>
-                </div>
-
-                <div class="media mt-4">
-                  <img class="d-flex mr-3 rounded-circle" src="/ObligatorioJar/img/50x50.png" alt="Foto de perfil del usuario">
-                  <div class="media-body">
-                  <a href="/pages/perfil.html" title=""><h5 class="mt-0">Nombre de usuario</h5></a>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                  </div>
-                </div>
-
-              </div>
-            </div> -->
-            
-          </div>
 
         </div>
       </div>
